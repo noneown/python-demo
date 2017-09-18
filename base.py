@@ -1,9 +1,10 @@
-import json
+import csv
 import datetime
 from random import randint
+import json
 
 
-def generate_wether_data():
+def generate_wether_csv_data():
     date_list = []
     begin_date = datetime.datetime.strptime('2016-08-01', "%Y-%m-%d")
     end_date = datetime.datetime.strptime('2017-01-01', "%Y-%m-%d")
@@ -25,3 +26,19 @@ def generate_wether_data():
 
             row = i + ',' + str(maxd) + ',' + str(meand) + ',' + str(mind) + '\n'
             ff.write(row)
+
+def generate_people_json_data():
+    with open('datashow/data/data.csv', 'r') as f:
+        data=[]
+        reader = csv.reader(f)
+        for row in reader:
+            temp = {}
+            temp['code'] = row[0]
+            temp['name'] = row[1]
+            temp['num'] = randint(100000, 500000)
+            data.append(temp)
+
+    with open('datashow/data/country.csv', 'w') as c:
+        json.dump(data, c)
+
+generate_people_json_data()
