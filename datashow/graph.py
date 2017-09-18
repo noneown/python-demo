@@ -34,14 +34,16 @@ def playD_for_bar():
         results.append(result)
 
     frequencies = []
+    xlabels = []
     for value in range(num_d, d.num_sizes * num_d + 1):
+        xlabels.append(value)
         frequencie = results.count(value)
         frequencies.append(frequencie)
 
     print frequencies
 
     hist = pygal.Bar()
-    hist.x_labels = d.get_all_num()
+    hist.x_labels = xlabels
     hist.title = 'play stistics'
     hist.x_title = 'result'
     hist.y_title = 'frequency'
