@@ -38,7 +38,7 @@ def playD_for_bar():
     for value in range(num_d, d.num_sizes * num_d + 1):
         xlabels.append(value)
         frequencie = results.count(value)
-        frequencies.append(frequencie)
+        frequencies.append({'value': frequencie, 'label': str(value) + ':' + str(frequencie), 'xlink': 'https://www.baidu.com/s?wd=china'})
 
     print frequencies
 
