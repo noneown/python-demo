@@ -33,12 +33,15 @@ def check_event(ai_settings, screen, ship, bullets):
         elif(event.type == pygame.KEYUP):
             check_keyup_event(event, ship)
 
-def update_game(ai_setting, screen, ship, aliens, bullets):
-    screen.fill(ai_setting.bg_color)
+def update_game(ai_settings, screen, stats, ship, aliens, bullets, play_button):
+    screen.fill(ai_settings.bg_color)
     for bullet in bullets.sprites():
         bullet.draw_bullet()
     ship.blitme()
     aliens.draw(screen)
+    if not stats.game_active:
+        play_button.draw_button()
+
     pygame.display.flip()
 
 def update_bullets(ai_settings, screen, ship, aliens, bullets):
@@ -85,9 +88,6 @@ def create_fleet(ai_settings, screen, ship, aliens):
     for row_number in range(number_rows):
         for alien_number in range(number_aliens_x):
             create_alien(ai_settings, screen, aliens, alien_number, row_number)
-
-def update_aliens(aliens):
-    aliens.update()
 
 def check_fleet_edges(ai_settings, aliens):
     for alien in aliens.sprites():
