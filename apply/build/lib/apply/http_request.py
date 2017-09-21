@@ -22,7 +22,7 @@ def test_request():
     # html = get_content_by_urllib()
     soup = BeautifulSoup(html, 'lxml')
     soup_texts = soup.find('div', id = 'book_detail', class_= 'box1').find_next('div')
-    f = open('story.txt','w')
+    f = open('/apply/apply/data/story.txt','w')
     for link in soup_texts.ol.children:
         if link != '\n':
             download_url = link.a.get('href')
