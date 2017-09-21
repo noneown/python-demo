@@ -17,7 +17,7 @@ def get_content_by_urllib():
     response = urllib2.urlopen(req)
     return response.read()
 
-if __name__ == '__main__':
+def test_request():
     html = get_content_by_request()
     # html = get_content_by_urllib()
     soup = BeautifulSoup(html, 'lxml')
