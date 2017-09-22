@@ -1,8 +1,8 @@
 from nose.tools import *
 
-from apply.apply.pthread import test
+from apply.http_request import test_request
 
-from apply.apply.http_request import test_request
+from apply.pthread import test
 
 def setup():
     print "SETUP!"
