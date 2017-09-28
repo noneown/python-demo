@@ -20,8 +20,10 @@ with open(file) as f:
         meand.append(int(row[2]))
         mind.append(int(row[3]))
 
+    pt.rcParams["lines.linewidth"] = 4
     fig = pt.figure(128, figsize=(10, 6))
     pt.plot(dates, maxd, c='red')
+    pt.rcdefaults()
     pt.plot(dates, mind, c='blue')
     pt.fill_between(dates, maxd, mind, facecolor='yellow', alpha=0.1)
     pt.title('temperature')
