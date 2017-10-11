@@ -1,8 +1,8 @@
 from time import ctime
 
-import SocketServer
+import s_server
 
-class MyRequestHandler(SocketServer.StreamRequestHandler):
+class MyRequestHandler(s_server.StreamRequestHandler):
 
     def handle(self):
         print 'connected from: ' + str(self.client_address)
@@ -10,6 +10,6 @@ class MyRequestHandler(SocketServer.StreamRequestHandler):
         print 'recv data: ' + data
         self.wfile.write('%s %s'%(ctime(), data))
 
-tcpServer = SocketServer.TCPServer(('localhost', 8686), MyRequestHandler)
+tcpServer = s_server.TCPServer(('localhost', 8686), MyRequestHandler)
 print 'waiting for connection...'
 tcpServer.serve_forever()
